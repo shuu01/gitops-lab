@@ -1,3 +1,3 @@
 cluster_name      = "staging"
 cluster_path      = "clusters/staging"
-bootstrap_revision = 2
+bootstrap_revision = 3
