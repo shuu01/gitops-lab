@@ -1,3 +1,6 @@
+# FluxInstance is managed in the flux repo (git-is-authoritative).
+# This is also a bootstrap-only seed for terraform provisioning.
+# Keep BOTH files byte-identical - sync from the flux repo before cluster creation.
 apiVersion: fluxcd.controlplane.io/v1
 kind: FluxInstance
 metadata:
@@ -9,6 +12,8 @@ spec:
     - kustomize-controller
     - helm-controller
     - notification-controller
+    - image-reflector-controller
+    - image-automation-controller
   distribution:
     version: "2.9.x"
     registry: ghcr.io/fluxcd
