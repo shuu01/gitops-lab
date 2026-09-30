@@ -21,6 +21,10 @@ resource "kind_cluster" "this" {
         host_port      = 8080
         container_port = 30709
       }
+      extra_port_mappings {
+        host_port      = 8443
+        container_port = 30443
+      }
     }
   }
 }
