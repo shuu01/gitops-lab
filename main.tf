@@ -26,6 +26,14 @@ resource "kind_cluster" "this" {
         container_port = 30443
       }
     }
+
+    node {
+      role = "worker"
+    }
+
+    node {
+      role = "worker"
+    }
   }
 }
 
