@@ -17,14 +17,6 @@ resource "kind_cluster" "this" {
         EOT
       ]
     }
-
-    node {
-      role = "worker"
-    }
-
-    node {
-      role = "worker"
-    }
   }
 }
 
@@ -40,13 +32,6 @@ module "flux_operator_bootstrap" {
 
   managed_resources = {
     secrets_yaml = join("---\n", [
-      yamlencode({
-        apiVersion  = "v1"
-        kind        = "Secret"
-        metadata    = { name = "sops-age", namespace = "flux-system" }
-        type        = "Opaque"
-        stringData  = { "age.agekey" = var.age_private_key }
-      }),
       yamlencode({
         apiVersion = "v1"
         kind       = "Secret"
